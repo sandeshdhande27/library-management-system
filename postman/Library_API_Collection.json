@@ -1,0 +1,345 @@
+{
+  "info": {
+    "name": "Library Management System - Full APIs",
+    "_postman_id": "abc12345-6789-0000-1111-222233334444",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+
+    {
+      "name": "Auth APIs",
+      "item": [
+        {
+          "name": "Get JWT",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/get_jwt",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "get_jwt"]
+            }
+          }
+        },
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Virat\",\n  \"email\": \"virat@gmail.com\",\n  \"password\": \"123\",\n  \"membershipMonths\": 6\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "register"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Book APIs",
+      "item": [
+        {
+          "name": "Add Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookName\": \"Clean Code\",\n  \"bookAuthor\": \"Robert C\",\n  \"bookCategory\": \"Programming\",\n  \"bookStatus\": \"AVAILABLE\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/books/add_books",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "books", "add_books"]
+            }
+          }
+        },
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/books/get_books",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "books", "get_books"]
+            }
+          }
+        },
+        {
+          "name": "Filter Books",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"Programming\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/books/select_specific_book",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "books", "select_specific_book"]
+            }
+          }
+        },
+        {
+          "name": "Take Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookId\": 1,\n  \"userId\": 1,\n  \"days\": 5\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/books/take_book",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "books", "take_book"]
+            }
+          }
+        },
+        {
+          "name": "Return Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/books/return_book",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "books", "return_book"]
+            }
+          }
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookId\": 1,\n  \"bookName\": \"Updated Book\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/books/update_book",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "books", "update_book"]
+            }
+          }
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/books/delete_book",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "books", "delete_book"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Membership APIs",
+      "item": [
+        {
+          "name": "Add Membership",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"membershipType\": \"Premium\",\n  \"startDate\": \"2026-03-25T00:00:00.000+00:00\",\n  \"endDate\": \"2026-09-25T00:00:00.000+00:00\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/membership/add",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["membership", "add"]
+            }
+          }
+        },
+        {
+          "name": "Get All Memberships",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/membership/get-all",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["membership", "get-all"]
+            }
+          }
+        },
+        {
+          "name": "Get Membership by User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/membership/get-by-user?userId=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["membership", "get-by-user"],
+              "query": [
+                { "key": "userId", "value": "1" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Membership",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/membership/update?membershipId=1&type=Gold",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["membership", "update"],
+              "query": [
+                { "key": "membershipId", "value": "1" },
+                { "key": "type", "value": "Gold" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Membership",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/membership/delete?membershipId=1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["membership", "delete"],
+              "query": [
+                { "key": "membershipId", "value": "1" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "User APIs",
+      "item": [
+        {
+          "name": "User History",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/users/1/history",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "users", "1", "history"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Report APIs",
+      "item": [
+        {
+          "name": "Top Category Report",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/reports/top-category",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reports", "top-category"]
+            }
+          }
+        }
+      ]
+    }
+
+  ]
+}
