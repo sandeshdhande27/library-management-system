@@ -98,7 +98,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"category\": \"Programming\"\n}"
+              "raw": "{\n  \"bookCategory\": \"Programming\"\n}"
             },
             "url": {
               "raw": "http://localhost:8080/api/books/select_specific_book",
