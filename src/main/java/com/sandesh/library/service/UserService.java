@@ -65,4 +65,14 @@ public class UserService {
     return "Login successful";
 }
 
+
+
+
+    public User getUserByEmail(String email) {
+        return userRepository.findUserByEmailForDashboard(email).orElse(null);
+    }
+
+
+
+
 }
