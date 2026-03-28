@@ -39,6 +39,10 @@ public class TransactionService {
                 map.put("returnDate", t.getReturnDate()); // optional
                 map.put("status", t.getStatus());
 
+                // map.put("bookId", b.getId());
+                map.put("author", b.getBookAuthor());
+                map.put("category", b.getBookCategory());
+
                 currentBooks.add(map);
             }
         }
@@ -55,6 +59,10 @@ public class TransactionService {
                 map.put("returnDate", t.getReturnDate());
                 map.put("returnDate", t.getReturnDate());
                 map.put("status", t.getStatus());
+
+                // map.put("bookId", b.getId());
+                map.put("author", b.getBookAuthor());
+                map.put("category", b.getBookCategory());
 
                 pastBooks.add(map);
             }
