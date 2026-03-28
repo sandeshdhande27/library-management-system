@@ -293,15 +293,6 @@ return (
   Reports
 </button>
 
-        <div className="text-xs px-3 py-1 rounded bg-[#141414] border border-gray-700">
-          {dateTime}
-        </div>
-
-        <div className="bg-[#141414] px-3 py-2 rounded border border-gray-700">
-          <p className="text-sm font-semibold">{user?.name}</p>
-          <p className="text-xs text-gray-400">{user?.email}</p>
-        </div>
-
         <div className="flex gap-2">
           <button
             onClick={loadBooks}
@@ -318,6 +309,17 @@ return (
             Logout
           </button>
         </div>
+        
+        <div className="text-xs px-3 py-1 rounded bg-[#141414] border border-gray-700">
+          {dateTime}
+        </div>
+
+        <div className="bg-[#141414] px-3 py-2 rounded border border-gray-700">
+          <p className="text-sm font-semibold">{user?.name}</p>
+          <p className="text-xs text-gray-400">{user?.email}</p>
+        </div>
+
+
 
       </div>
     </div>
