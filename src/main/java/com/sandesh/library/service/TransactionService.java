@@ -36,6 +36,8 @@ public class TransactionService {
                 Map<String, Object> map = new HashMap<>();
                 map.put("bookName", b.getBookName());
                 map.put("issueDate", t.getIssueDate());
+                map.put("returnDate", t.getReturnDate()); // optional
+                map.put("status", t.getStatus());
 
                 currentBooks.add(map);
             }
@@ -51,6 +53,8 @@ public class TransactionService {
                 Map<String, Object> map = new HashMap<>();
                 map.put("bookName", b.getBookName());
                 map.put("returnDate", t.getReturnDate());
+                map.put("returnDate", t.getReturnDate());
+                map.put("status", t.getStatus());
 
                 pastBooks.add(map);
             }
@@ -59,6 +63,7 @@ public class TransactionService {
         Map<String, Object> response = new HashMap<>();
         response.put("current_books", currentBooks);
         response.put("past_books", pastBooks);
+        response.put("message", "User history retrieved successfully");
 
         return response;
     }
