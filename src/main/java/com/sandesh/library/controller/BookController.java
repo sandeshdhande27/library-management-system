@@ -68,4 +68,11 @@ public String takeBook(@RequestBody TakeBookRequest request) {
     public String deleteBook(@Valid @RequestBody DeleteBookRequest request) {
         return bookService.deleteBook(request);
     }
+
+
+    @GetMapping("/categories")
+public List<String> getCategories() {
+    return bookService.getAllCategories();
+}
+
 }

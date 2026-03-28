@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
@@ -31,5 +32,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 @Query("DELETE FROM Book b WHERE b.id = :bookId AND b.bookStatus = 'AVAILABLE'")
 int deleteBookById(Long bookId);
 
+
+@Query("SELECT DISTINCT b.bookCategory FROM Book b")
+List<String> findDistinctCategories();
 
 }

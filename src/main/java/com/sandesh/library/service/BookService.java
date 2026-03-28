@@ -200,5 +200,9 @@ public String returnBook(Long bookId) {
 }
 
 
+public List<String> getAllCategories() {
+    return bookRepository.findDistinctCategories();
+}
+
 
 }
