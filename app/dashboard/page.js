@@ -35,6 +35,7 @@ const [loadingReport, setLoadingReport] = useState(false);
 useEffect(() => {
   const t = localStorage.getItem("jwt_lib_token");
   const email = localStorage.getItem("user_email");
+  console.log("user infor...",t, email)
 
   if (!t || !email) {
     router.replace("/");
@@ -52,6 +53,8 @@ useEffect(() => {
       toast.error("Failed to load user");
       router.replace("/");
     });
+
+    console.log("user infor...",user)
 
 }, []);
 
@@ -225,29 +228,37 @@ const loadTopCategory = async () => {
   };
 
   // 📤 RETURN BOOK
-  const returnBook = async (bookId) => {
-    try {
-      setActionLoading(true);
+const returnBook = async (bookId) => {
+  if (!user?.id) return toast.error("User not loaded"); // safety
 
-      const res = await fetch("http://localhost:8080/api/books/return_book", {
-        method: "POST",
-        headers,
-        body: JSON.stringify({ bookId }),
-      });
+  try {
+    setActionLoading(true);
 
-      toast.success(await res.text());
-      loadBooks();
+    console.log("data for sending...",user.id,bookId)
 
-    } catch {
-      toast.error("Return failed");
-    } finally {
-      setActionLoading(false);
-    }
-  };
+    const res = await fetch("http://localhost:8080/api/books/return_book", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ 
+        bookId: bookId,
+        userId: user.id   // ✅ use from state
+      }),
+    });
+
+    toast.success(await res.text());
+    loadBooks();
+
+  } catch {
+    toast.error("Return failed");
+  } finally {
+    setActionLoading(false);
+  }
+};
 
   // 🚪 LOGOUT
   const logout = () => {
     localStorage.removeItem("jwt_lib_token");
+    localStorage.removeItem("user_email");
     router.replace("/");
   };
 
@@ -309,7 +320,7 @@ return (
             Logout
           </button>
         </div>
-        
+
         <div className="text-xs px-3 py-1 rounded bg-[#141414] border border-gray-700">
           {dateTime}
         </div>
