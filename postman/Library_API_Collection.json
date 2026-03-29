@@ -140,7 +140,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"bookId\": 1\n}"
+              "raw": "{\n  \"bookId\": 1,\n  \"userId\": 1,\n}"
             },
             "url": {
               "raw": "http://localhost:8080/api/books/return_book",
