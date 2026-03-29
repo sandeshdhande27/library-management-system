@@ -12,4 +12,7 @@ public interface BookTransactionRepository extends JpaRepository<BookTransaction
     List<BookTransaction> findByUserIdAndStatus(Long userId, String status);
 
     List<BookTransaction> findByStatus(String status);
+
+    BookTransaction findByUserIdAndBookIdAndStatus(Long userId, Long bookId, String status);
+
 }

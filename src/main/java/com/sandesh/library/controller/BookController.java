@@ -51,7 +51,7 @@ public String takeBook(@RequestBody TakeBookRequest request) {
 @PostMapping("/return_book")
     public ResponseEntity<String> returnBook(@Valid @RequestBody ReturnBookRequest request) {
         // Call service with only bookId
-        String response = bookService.returnBook(request.getBookId());
+        String response = bookService.returnBook(request.getBookId(), request.getUserId());
         return ResponseEntity.ok(response);
     }
 

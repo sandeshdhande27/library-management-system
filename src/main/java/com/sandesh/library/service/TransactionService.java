@@ -42,6 +42,7 @@ public class TransactionService {
                 // map.put("bookId", b.getId());
                 map.put("author", b.getBookAuthor());
                 map.put("category", b.getBookCategory());
+                map.put("fine_amount",t.getFineAmount());
 
                 currentBooks.add(map);
             }
@@ -56,13 +57,14 @@ public class TransactionService {
 
                 Map<String, Object> map = new HashMap<>();
                 map.put("bookName", b.getBookName());
-                map.put("returnDate", t.getReturnDate());
+                map.put("issueDate", t.getIssueDate());
                 map.put("returnDate", t.getReturnDate());
                 map.put("status", t.getStatus());
 
                 // map.put("bookId", b.getId());
                 map.put("author", b.getBookAuthor());
                 map.put("category", b.getBookCategory());
+                map.put("fine_amount", t.getFineAmount());
 
                 pastBooks.add(map);
             }

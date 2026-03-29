@@ -21,6 +21,10 @@ public class BookTransaction {
 
     private String status; // Issued / Returned
 
+    // modifications
+private Date dueDate;        // when book should be returned
+private Double fineAmount;  // late fine
+
     // 🔹 Getters & Setters
 
     public Long getId() {
@@ -65,5 +69,23 @@ public class BookTransaction {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    // modifications...
+
+    public Date getDueDate(){
+        return dueDate;
+    }
+
+    public void setDueDate(Date dueDate){
+         this.dueDate = dueDate;
+    }
+
+    public Double getFineAmount(){
+        return fineAmount;
+    }
+
+    public void setFineAmount(Double fineAmount){
+         this.fineAmount = fineAmount;
     }
 }
