@@ -8,7 +8,7 @@ public class ReturnBookRequest {
 
     @NotNull(message = "bookId is required") // ✅ Ensure bookId is provided
     private Long bookId;
-    private Long userId; // ✅ Add userId to identify who is returning the book
+    private Long userId; //  userId to identify who is returning the book
 
     public Long getBookId() {
         return bookId;
