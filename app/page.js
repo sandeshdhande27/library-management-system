@@ -345,14 +345,23 @@ return (
   <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-black via-red-950 to-black text-white px-4">
 
     {/* 🔥 ADMIN BUTTON */}
-    <div className="mb-8">
+    {/* <div className="mb-10">
       <button
         onClick={() => setShowAdmin(true)}
-        className="px-8 py-3 text-lg font-semibold rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-600 text-black shadow-lg hover:scale-105 transition"
+        className="px-5 py-3 text-lg font-semibold rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-600 text-black shadow-lg hover:scale-105 transition"
       >
         👨‍💼 ADMIN PANEL
       </button>
-    </div>
+    </div> */}
+
+    <button
+  onClick={() => setShowAdmin(true)}
+  className="w-full px-5 py-3 text-lg font-semibold rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-600 text-black shadow-lg hover:scale-105 transition"
+>
+  👨‍💼 ADMIN PANEL
+</button>
+
+
 
     {/* ================= ADMIN MODAL ================= */}
     {showAdmin && (
@@ -518,11 +527,11 @@ return (
     )}
 
     {/* ================= LOGIN / REGISTER CARD ================= */}
-    <div style={styles.card}>
+    <div style={{ ...styles.card, marginTop: "40px" }}>
 
       <div style={styles.header}>
         <h2 style={styles.title}>
-          {isLogin ? "Welcome Back" : "Create Account"}
+          {isLogin ? "User | Welcome Back" : "Create Account"}
         </h2>
         <p style={styles.subtitle}>
           {isLogin ? "Login to continue" : "Register to get started"}
